@@ -3,6 +3,7 @@ package com.code.art.abstractfactory;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,5 +23,11 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.code.art.abstractfactory", appContext.getPackageName());
+    }
+
+    @Test
+    public void testGetUserDataFromSp(){
+        Data data = FactoryProducer.getFactory(DataType.USER).getUserDataSource(DataFrom.SP).get();
+        Log.d("factory", "testGetUserDataFromSp: " + data.data);
     }
 }
